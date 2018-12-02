@@ -1,21 +1,18 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-import { Route } from 'react-router-dom'
-import { useState } from 'react';
-
-import routes from './routes'
+import React, {Fragment} from 'react';
+import { Route, Redirect, Switch } from 'react-router-dom'
+import Header from './faac/Header';
+import routes from './routes';
 
 const App = ({ ...props }) => {
-	if (props.loggedUser) {
 		return (
-			<div>
-				{routes.map(route => <Route exact path={route.path} render={(props) => <route.component {...props} />} />)}
-			</div>
+			<Fragment>
+				<Header />
+				<Switch>
+					{routes.map(route => <Route exact path={route.path} render={(props) => <route.component {...props} />} />)}
+				</Switch>
+			</Fragment>
 		);
-	} else {
-		return <Redirect path='/login' />
-	}
+		 
 
 }
 
