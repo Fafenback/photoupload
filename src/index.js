@@ -5,6 +5,7 @@ import * as serviceWorker from './serviceWorker';
 import { BrowserRouter as Router } from 'react-router-dom';
 import {theme} from './theme';
 import {ThemeProvider} from 'styled-components';
+import 'bootstrap/dist/css/bootstrap.min.css';
 ReactDOM.render(
 	<ThemeProvider theme={theme}>
 		<Router>
