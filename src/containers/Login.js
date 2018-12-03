@@ -1,22 +1,15 @@
-import React, { Fragment } from 'react';
-import { Input } from 'reactstrap';
-import { useStore } from '../hookstore'
+import React, {useState} from 'react';
+import {withRouter} from 'react-router-dom';
+import LoginComponent from '../components/LoginComponent';
 
-const Login = () => {
-	const [timesClicked] = useStore();
-	console.log(timesClicked)
-	return (
-		<div>
-			<h1>
-				Hello, this is a second component, with no relation to the one on the
-        top
-      </h1>
-			<h2>
-				Using the useStore hook, I know the user clicked on the button {timesClicked} times!
-      </h2>
-		</div>
-	);
-}
+const Login = ({...props}) => {
+	const {history} = props;
+	const [email, updateEmail] = useState();
+	const [password, updatePassword] = useState();
+		return (
+		<LoginComponent email={email} password={password} updateEmail={updateEmail} updatePassword={updatePassword} />
+	);}
+	
 
 
-export default Login;
+export default withRouter(Login);
