@@ -1,17 +1,25 @@
 
-import LandingPage from './containers/LandingPage';
 import Login from './containers/Login';
-import Test from './containers/Test'
+import Test from './containers/Test';
+import PhotosList from './containers/PhotosList';
+import Signup from './containers/Signup';
 
 const routes = [{
 	path: '/',
-	component: LandingPage,
+	component: PhotosList,
+	exact: true
 },{
 	path: '/login',
-	component: Login
+	component: Login,
+	exact: true
+},{
+	path:'/signup',
+	component: Signup,
+	exact: true,
 },{
 	path: '/test',
-	component: Test
+	component: Test,
+	exact: true
 }]
 
 export default routes;
